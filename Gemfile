@@ -46,3 +46,21 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# ログイン機能を導入
+gem 'devise'
+# 日本語用のパッケージ導入
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+# bootstrapの導入
+gem 'bootstrap', '~> 4.1.1'
+
+# Fullcalendarの導入
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+# Google calenderを導入
+gem 'google-api-client'
+

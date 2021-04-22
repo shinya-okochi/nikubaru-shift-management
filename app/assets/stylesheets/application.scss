@@ -12,4 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require fullcalendar
  */
+
+// bootstrapの導入
+@import "bootstrap";
+
+body {
+    background-color: #f0f0ee;
+}
+
+.navbar {
+  border-radius: 50px;
+  background-image: image-url('bg-header.jpg');
+}
+
+.card {
+  border-radius: 10px;
+}
