@@ -3,12 +3,20 @@
   <head>
     <title>NikubaruShiftManagement</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <!--以下ヘッダー-->
+    <nav class="navbar navbar-dark mt-3 ml-2 mr-2" >
+      <a class="navbar-brand" href="#">
+        <%= image_tag "header-logo.png"%>
+      </a>
+    </nav>
+    <!--ここまで-->
+    <!--<p class="notice"><%= notice %></p>-->
+    <!--<p class="alert"><%= alert %></p>-->
     <%= yield %>
   </body>
 </html>

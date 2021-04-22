@@ -1,0 +1,60 @@
+<div class="container-fluid p-3">
+  <div class="row no-gutters">
+    <div class="col-md">
+      <div class="card mr-2">
+        <h1 class="ml-2 mt-1>">News</h1>
+        <a class="btn btn-dark" href="/news/new" role="button">投稿</a>
+        <ul class="list-group list-group-flush p-1">
+          <% @news.each do |news| %>
+            <li class="list-group-item">
+              <%= news.username %><br>
+              <%= news.text %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card ml-2">
+        <!--<h1 class="ml-2 mt-1">シフト</h1>-->
+        <div class="ml-2 mr-2 mb-2" id="calendar"></div>
+        <div id="calendar"></div>
+        <% @shifts.each do |shift| %>
+          <p class="ml-4">
+            <%= shift.date.strftime('%m/%d') %> 
+            <%= shift.start_time.strftime('%H:%M') %>-<%= shift.end_time.strftime('%H:%M') %>
+          </p>   
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // 画面遷移を検知
+    $(document).on('turbolinks:load', function () {
+        // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
+        if ($('#calendar').length) {
+            function eventCalendar() {
+                return $('#calendar').fullCalendar({
+                });
+            };
+            function clearCalendar() {
+                $('#calendar').html('');
+            };
+
+            $(document).on('turbolinks:load', function () {
+                eventCalendar();
+            });
+            $(document).on('turbolinks:before-cache', clearCalendar);
+
+            $('#calendar').fullCalendar({
+                events: 'callback.json'
+            });
+        }
+    });
+});
+
+
+</script>
