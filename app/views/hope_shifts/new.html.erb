@@ -1,0 +1,14 @@
+<h1>新規作成</h1>
+  <%= form_for(@hope_shift) do |f| %>
+  <th>日程</th>
+  <%= f.date_field :date %>
+  <th>開始時間</th>
+  <%= f.time_select :start_time %>
+  <th>終了時刻</th>
+  <%= f.time_select :end_time %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "送信" %>
+  
+  <% end %>
+
+

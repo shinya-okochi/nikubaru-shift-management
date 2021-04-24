@@ -5,26 +5,17 @@
         <h1 class="ml-2 mt-1>">News</h1>
         <a class="btn btn-dark" href="/news/new" role="button">投稿</a>
         <ul class="list-group list-group-flush p-1">
-          <% @news.each do |news| %>
-            <li class="list-group-item">
-              <%= news.username %><br>
-              <%= news.text %>
-            </li>
-          <% end %>
+          
         </ul>
       </div>
     </div>
     <div class="col-md">
       <div class="card ml-2">
-        <!--<h1 class="ml-2 mt-1">シフト</h1>-->
+        <h1 class="ml-2 mt-1">Shift</h1>
+        <a class="btn btn-dark" href="/hope_shifts/new" role="button">シフトを提出</a>
         <div class="ml-2 mr-2 mb-2" id="calendar"></div>
         <div id="calendar"></div>
-        <% @shifts.each do |shift| %>
-          <p class="ml-4">
-            <%= shift.date.strftime('%m/%d') %> 
-            <%= shift.start_time.strftime('%H:%M') %>-<%= shift.end_time.strftime('%H:%M') %>
-          </p>   
-        <% end %>
+        
       </div>
     </div>
   </div>
