@@ -1,0 +1,10 @@
+<%= form_for(@hope_shift) do |f| %>
+  <%= f.label :date, "日程：" %>
+  <%= f.date_field :date %>
+  <%= f.label :start_time, "開始時間：" %>
+  <%= f.time_select :start_time %>
+  <%= f.label :end_time, "終了時刻：" %>
+  <%= f.time_select :end_time %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "送信" %>
+<% end %>

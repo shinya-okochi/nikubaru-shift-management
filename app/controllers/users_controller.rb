@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(1)
     # @shifts = @user.shifts
-    # @news = News.all
+    @news = News.all
   end
   
   

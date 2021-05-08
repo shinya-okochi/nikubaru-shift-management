@@ -1,0 +1,8 @@
+<% @hope_shifts.each do |shift| %>
+  <p>
+    <%= shift.user.name %>
+    <%= shift.date %>：
+    <%= shift.start_time.strftime('%H:%M') %>〜
+    <%= shift.end_time.strftime('%H:%M') %>
+  </p>
+<% end %>
