@@ -3,16 +3,28 @@
     <div class="col-md">
       <div class="card mr-2">
         <h1 class="ml-2 mt-1>">News</h1>
-        <a class="btn btn-dark" href="/news/new" role="button">投稿</a>
+        <!--<a class="btn btn-dark" href="/news/new" role="button">投稿</a>-->
         <ul class="list-group list-group-flush p-1">
-          
+          <% @news.each do |news| %>
+            <p>
+              <h5><%= news.title %></h5>
+              <%= news.text %>
+            </p>
+          <% end %>
         </ul>
       </div>
     </div>
     <div class="col-md">
       <div class="card ml-2">
         <h1 class="ml-2 mt-1">Shift</h1>
-        <a class="btn btn-dark" href="/hope_shifts/new" role="button">シフトを提出</a>
+          <% if current_user.id === 1 %>
+            <%= button_to "確定シフトを作成", new_fixed_shift_path, {method: :get} if current_user.id === 1 %>
+            <%= button_to "全スタッフの希望シフトを確認", hope_shifts_index_date_path, {method: :get} if current_user.id === 1 %>
+          <% else %>
+            <%= button_to "希望シフトを投稿", {controller: 'hope_shifts', action: 'new'}, {method: :get} %>
+            <%= button_to "希望シフトを確認", hope_shifts_index_user_id_path, {method: :get} %>
+          <% end %>
+        
         <div class="ml-2 mr-2 mb-2" id="calendar"></div>
         <div id="calendar"></div>
         

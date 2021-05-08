@@ -1,0 +1,8 @@
+<% @hope_shifts.each do |shift| %>
+  <p>
+    <%= shift.date %>：
+    <%= shift.start_time.strftime('%H:%M') %>〜
+    <%= shift.end_time.strftime('%H:%M') %>
+    <%= link_to "編集", edit_hope_shift_path(shift.id) %>
+  </p>
+<% end %>
